@@ -7,10 +7,11 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "npm run dev",
-	 "build": "node build/build.js",
-	 "fake": "json-server data/db.json --port 7788"
+    "build": "node build/build.js",
+    "fake": "json-server data/db.json --port 7788"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0"
   },
