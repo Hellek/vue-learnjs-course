@@ -1,5 +1,5 @@
 <template>
-	<h1 id="page-header">
+	<h1>
 		{{ text }}
 	</h1>
 </template>
@@ -16,7 +16,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 	h1 {
 		text-align: center;
 	}

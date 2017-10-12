@@ -14,53 +14,28 @@ import userlist from '../common/table.vue'
 
 export default {
 	name: 'list',
-	data: function() {
-		return {
-			users: [
-				{
-					"id": 1,
-					"name": "roy",
-					"location": "india"
-				},
-				{
-					"id": 2,
-					"name": "sam",
-					"location": "wales"
-				},
-				{
-					"name": "ii",
-					"location": "la",
-					"id": 7
-				},
-				{
-					"name": "Shona",
-					"location": "LA",
-					"id": 8
-				},
-				{
-					"name": "Shona",
-					"location": "LA",
-					"id": 9
-				}
-			],
-			pageTitle: 'Список пользователей'
-		}
-	},
 	components: {
 		pageHeader,
 		userlist
 	},
+	data: function() {
+		return {
+			users: [],
+			pageTitle: 'Список пользователей',
+			postsCount: '_limit=1'
+		}
+	},
 	methods: {
 		getUserlist() {
 			let that = this;
-			axios.get('http://localhost:7788/users')
-				.then(function(response) {
+			axios.get('http://localhost:7788/users?' + this.postsCount)
+				.then((response) => {
 					return response.data;
 				})
-				.then(function(data) {
+				.then((data) => {
 					that.users = data;
 				})
-				.catch(function(error) {
+				.catch((error) => {
 					console.log(123, error);
 				});
 		}
@@ -68,7 +43,6 @@ export default {
 	mounted: function() {
 		this.getUserlist();
 	}
-
 }
 </script>
 
